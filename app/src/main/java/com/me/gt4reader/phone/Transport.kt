@@ -1,6 +1,6 @@
-package com.example.gt4reader
+package com.me.gt4reader.phone
 
-import com.example.gt4reader.BookParser.Book
+import com.me.gt4reader.phone.BookParser.Book
 import org.json.JSONObject
 
 /**

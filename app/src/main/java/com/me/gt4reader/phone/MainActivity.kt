@@ -1,4 +1,4 @@
-package com.example.gt4reader
+package com.me.gt4reader.phone
 
 import android.net.Uri
 import android.os.Build

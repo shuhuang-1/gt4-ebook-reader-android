@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.gt4reader'
+    namespace 'com.me.gt4reader.phone'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.gt4reader"
+        applicationId "com.me.gt4reader.phone"
         minSdk 26
         targetSdk 33
         versionCode 1

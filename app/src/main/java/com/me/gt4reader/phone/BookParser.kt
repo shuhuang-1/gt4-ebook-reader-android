@@ -1,4 +1,4 @@
-package com.example.gt4reader
+package com.me.gt4reader.phone
 
 import java.io.File
 import java.nio.charset.Charset

@@ -1,4 +1,4 @@
-package com.example.gt4reader
+package com.me.gt4reader.phone
 
 // ============================================================================
 //  Wear Engine 真实传输实现 —— 模板
@@ -26,7 +26,7 @@ import com.huawei.wearengine.p2p.SendCallback
 class WearEngineTransport(private val context: Context) : Transport {
 
     // ★ 必须和手表端 index.js 里 setPeerPkgName / setPeerFingerPrint 完全一致
-    private val peerPkgName = "com.example.gt4reader"      // 手表端 App 包名（bundleName）
+    private val peerPkgName = "com.me.gt4reader.phone"      // 手表端 App 包名（bundleName）
     private val peerFingerPrint = "在这里填手表端 App 证书指纹"
 
     private val deviceClient: DeviceClient by lazy { HiWear.getDeviceClient(context) }
