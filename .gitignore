@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# 签名 ★ 绝不能提交
+*.jks
+*.keystore
+
+# 构建产物
+app/build/
+app/release/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 系统
+.DS_Store
+Thumbs.db

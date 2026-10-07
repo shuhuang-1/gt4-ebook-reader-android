@@ -1,0 +1,95 @@
+package com.example.gt4reader
+
+// ============================================================================
+//  Wear Engine 真实传输实现 —— 模板
+//
+//  ⚠️ 现在是 .kt.template，故意不参与编译（HiWear SDK 还没引入）。
+//  ⚠️ 下面所有 com.huawei.wearengine.* 的类名/方法名是**按官方文档写的示意**，
+//     实际引入 aar 后以 SDK 里的真实签名为准，IDE 会自动提示要改哪里。
+//
+//  启用步骤：
+//   1. app/build.gradle 加依赖：implementation 'com.huawei.hms:hiwear:...'
+//   2. AndroidManifest.xml 里填好包名（要和手表端 setPeerPkgName 一致）
+//   3. 把本文件改名为 WearEngineTransport.kt
+//   4. MainActivity 里把 MockTransport() 换成 WearEngineTransport(this)
+// ============================================================================
+
+/*
+import android.content.Context
+import com.huawei.wearengine.HiWear
+import com.huawei.wearengine.device.Device
+import com.huawei.wearengine.device.DeviceClient
+import com.huawei.wearengine.p2p.Message
+import com.huawei.wearengine.p2p.P2pClient
+import com.huawei.wearengine.p2p.SendCallback
+
+class WearEngineTransport(private val context: Context) : Transport {
+
+    // ★ 必须和手表端 index.js 里 setPeerPkgName / setPeerFingerPrint 完全一致
+    private val peerPkgName = "com.example.gt4reader"      // 手表端 App 包名（bundleName）
+    private val peerFingerPrint = "在这里填手表端 App 证书指纹"
+
+    private val deviceClient: DeviceClient by lazy { HiWear.getDeviceClient(context) }
+    private val p2p: P2pClient by lazy { HiWear.getP2pClient(context) }
+
+    private var watch: Device? = null
+
+    override fun isReady(): Boolean = watch != null
+
+    override fun statusText(): String = when {
+        watch != null -> "已连接：${watch?.name ?: "手表"}"
+        else -> "未连接手表（检查运动健康是否已配对）"
+    }
+
+    /** 先调用一次，拿到已配对的手表设备 */
+    fun bind(onResult: (Boolean, String) -> Unit) {
+        deviceClient.bondedDevices
+            .addOnSuccessListener { devices ->
+                val d = devices.firstOrNull()
+                if (d == null) {
+                    onResult(false, "没有已配对的设备")
+                } else {
+                    watch = d
+                    p2p.setPeerPkgName(peerPkgName)
+                    p2p.setPeerFingerPrint(peerFingerPrint)
+                    onResult(true, "已绑定 ${d.name}")
+                }
+            }
+            .addOnFailureListener { e ->
+                onResult(false, "获取设备失败：${e.message}")
+            }
+    }
+
+    override fun sendRaw(text: String, onResult: (Boolean, String?) -> Unit) {
+        val d = watch
+        if (d == null) {
+            onResult(false, "手表未连接")
+            return
+        }
+
+        val msg = Message.Builder()
+            .setPayload(text.toByteArray(Charsets.UTF_8))
+            .build()
+
+        p2p.send(d, msg, object : SendCallback {
+            override fun onSendResult(resultCode: Int) {
+                if (resultCode == 0) {
+                    onResult(true, null)
+                } else {
+                    onResult(false, explain(resultCode))
+                }
+            }
+            override fun onSendProgress(progress: Long) { /* 单片内部进度，可忽略 */ }
+        })
+    }
+
+    /** 常见错误码 → 人话。具体数值以官方文档为准。 */
+    private fun explain(code: Int): String = when (code) {
+        200 -> "手表端未安装本应用"
+        201 -> "手表端已安装但未运行，请在表上打开阅读器"
+        206 -> "手表端应用未在运行，请在表上打开阅读器"
+        208 -> "未获得 Wear Engine 权限（权限申请是否已通过？）"
+        else -> "发送失败，错误码 $code"
+    }
+}
+*/
