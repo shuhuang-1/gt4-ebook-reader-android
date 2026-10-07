@@ -2,6 +2,8 @@
 
 在手机上挑一本本地 txt，解析成章节后**分片推送到 HUAWEI WATCH GT4**，在手表上离线阅读。
 
+这是我前面发的那个阅读器需要配合使用的安卓端app，因为如果把书编译进hap包的话，就会因为体积太大而安装不上，应用调试助手报错 安装失败：10.内部错误，所以只能使用手机把它推送到手表里面，不过这个依旧是半成品，华为的wear engine审核还没通过，手机没办法往手表里面推送文件，大概再过几天审核通过了，就可以用了。
+
 > 配套的手表端（Lite Wearable / HarmonyOS）：[gt4-ebook-reader](https://github.com/shuhuang-1/gt4-ebook-reader)
 
 ---
